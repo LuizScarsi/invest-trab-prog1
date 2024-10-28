@@ -4,17 +4,33 @@ import produtos.*;
 import utilitarios.*;
 
 public class App {
-    public static void main(String[] args){
-        
+    public static void main(String[] args) {
+
+        /*
+        * - Implementar métodos para criar novos produtos (ações, fundos...) interagindo com o usuário
+        * - Desenvolver a classe App.java 
+        * - Verificar se é possível acrescentar a classe Assessor.java (re-configurar os métodos para a classe funcionar)
+        * - Podemos implementar melhoras nas classes, otimizar os códigos... 
+        */
+
+        // Criando algumas ações
+        Acoes petrobras = new Acoes("Petrobras S.A.", 34.50, 9, "PETR4",6.5, 100);
+        Acoes magazineLuiza = new Acoes("Magazine Luiza S.A.", 3.50, 8.0, "MGLU3", 1.2, 200);
+        Acoes itau = new Acoes("Itaú Unibanco Holding S.A", 27.80, 6.0, "ITUB4", 5.8, 300);
+        Acoes vale = new Acoes("VALE S.A.", 60.00, 5.0, "VALE3", 7.1, 500); 
+         
+        // Criando tesouros diretos
+        TesouroDireto selic = new TesouroDireto("Tesouro Selic", 100.00, 12.75, "Tesouro Selic");
+        TesouroDireto cdb = new TesouroDireto("CDB (Certificado de Depósito Bancário) de Grandes Bancos", 500.00, 90.00, "Tesouro CDB");
+
+        // Criando um fundo imobiliário
+        FundoImobiliario shoppingVinci = new FundoImobiliario("Vinci Shopping Centers", 100.00, 2.0, "VISC11", 0.70);
+
+        // Criando clientes
+        Cliente cliente1 = new PessoaFisica("João Silva", "123456", "12345678900");
+        Cliente cliente2 = new PessoaJuridica("Empresa XYZ", "654321", "98765432000195");
+
         boolean continuar = true;
-
-        Carteira<ProdutoFinanceiro>carteira;
-
-        carteira = new Carteira<>();
-
-        TesouroDireto tesouro2027 = new TesouroDireto("'Tesouro 2027'", 1000.00, 10);
-
-        carteira.adicionarProduto(tesouro2027);
 
         while(continuar){
             //interface inicial
@@ -43,41 +59,35 @@ public class App {
                 default:
                     System.out.println("Opção inválida. Por favor, escolha novamente.");
             }
-        }
+        }   
+        
+         /* 
+         Exemplo para depositar dinheiro nas contas dos clientes
+         cliente1.depositar(500.0);
+         cliente2.depositar(1000.0);
+ 
+         // Exemplo para exibir saldos
+         cliente1.exibirSaldo();
+         cliente2.exibirSaldo();
+ 
+         // Exemplo para realizar compras
+         Compra compra1 = new Compra(cliente1, magazineLuiza, 5);
+         compra1.executarOrdem(); // Executa a compra
+ 
+         // Exemplo para listar carteiras
+         System.out.println("Carteira do João:");
+         cliente1.listarCarteira();
+ 
+         System.out.println("Carteira da Empresa XYZ:");
+         cliente2.listarCarteira();
+ 
+         // Exemplo para realizar vendas
+         Venda venda1 = new Venda(cliente1, magazineLuiza, 2);
+         venda1.executarOrdem(); // Executa a venda
+ 
+         // Exemplo para exibir saldos após venda
+         cliente1.exibirSaldo();
+         */        
     }
-
-    //implementar métodos nas classes de ordem
-    /*private static void criarOrdemDeCompra(int escolha) {
-        System.out.println("Criando Ordem de Compra...");
-    
-        System.out.print("Digite o nome do ativo: ");
-        String ativo = Teclado.readString();
-    
-        System.out.print("Digite a quantidade: ");
-        int quantidade = Teclado.readInt();
-    
-        System.out.print("Digite o preço por unidade: ");
-        double preco = Teclado.readDouble();
-    
-        Compra compra = new Compra(ativo, quantidade, preco);
-        compra.executarOrdem();
-    }
-    
-    private static void criarOrdemDeVenda(int escolha) {
-        System.out.println("Criando Ordem de Venda...");
-    
-        System.out.print("Digite o nome do ativo: ");
-        String ativo = Teclado.readString();
-    
-        System.out.print("Digite a quantidade: ");
-        int quantidade = Teclado.readInt();
-    
-        System.out.print("Digite o preço por unidade: ");
-        double preco = Teclado.readDouble();
-    
-        Venda venda = new Venda(ativo, quantidade, preco);
-        venda.executarOrdem();
-    }*/
-    
 }
-
+   

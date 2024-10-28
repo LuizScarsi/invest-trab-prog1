@@ -1,5 +1,9 @@
-package entidades;
+/* 
 
+Verificar se é necessário utilizar a classe Assessor 
+Precisa implementá-la e atualizar as demais classes e métodos
+
+package entidades;
 import produtos.*;
 
 public class Assessor extends Participante{
@@ -75,3 +79,5 @@ public class Assessor extends Participante{
     }
 
 }
+
+*/

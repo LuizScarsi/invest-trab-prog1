@@ -1,26 +1,40 @@
 package entidades;
 
-public class PessoaJuridica extends Cliente{
+public class PessoaJuridica extends Cliente {
 
-    private String cnpj;
-
-    public PessoaJuridica(int id, String nome, String conta, String cnpj){
-        setId(id);
+    // Construtor que inicializa somente atributos essenciais
+    public PessoaJuridica(String nome, String conta, String documentoIdentidade) {
+        super();  // Chama o construtor da classe pai (Cliente)
         setNome(nome);
         setConta(conta);
-        this.cnpj = cnpj;
+        setDocumentoIdentidade(documentoIdentidade);
+        setTipoParticipante("Pessoa Jurídica");
+        // Define a data de cadastro como a data atual
+        setDataCadastro(java.time.LocalDate.now().toString());  
     }
 
-    public void setCnpj(String cnpj){
-        this.cnpj = cnpj;
+    // Construtor que inicializa todos os atributos
+    public PessoaJuridica(String nome, String conta, String endereco, String tipoParticipante, 
+                          String documentoIdentidade) {
+        super();  // Chama o construtor da classe pai (Cliente)
+        setNome(nome);
+        setConta(conta);
+        setEndereco(endereco);
+        setTipoParticipante(tipoParticipante);
+        setDocumentoIdentidade(documentoIdentidade);
+        setDataCadastro(java.time.LocalDate.now().toString()); 
     }
 
-    public String getCnpj(){
-        return cnpj;
+    // Método para exibir dados da pessoa jurídica
+    @Override
+    public void exibirDados() {
+        System.out.println("Dados da Pessoa Jurídica:");
+        System.out.printf("ID: %d, Nome: %s, Conta: %s, Saldo: R$ %.2f, Documento: %s, Data de Cadastro: %s\n", 
+                          getId(), getNome(), getConta(), getSaldoConta(), getDocumentoIdentidade(), getDataCadastro());
     }
 
-    public void exibirDados(){
-        //implementar
+    @Override
+    public String toString() {
+        return "Pessoa Jurídica - " + super.toString();
     }
-
 }
