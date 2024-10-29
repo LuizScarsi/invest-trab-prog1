@@ -14,7 +14,7 @@ public abstract class Participante {
 
     protected Participante() {
         gerarId(); // Gera o ID automaticamente quando o participante é criado
-    }
+    } // Não deveria chamar Participante.gerarId() dentro dos construtores de pessoa física/pessoa jurídica?
 
     // Incrementa o id dinamicamente
     protected void gerarId() {
