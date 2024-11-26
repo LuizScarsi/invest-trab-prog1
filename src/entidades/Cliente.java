@@ -1,6 +1,7 @@
 package entidades;
 import produtos.*;
 import utilitarios.Carteira;
+import ordem.*;
 
 // Classe abstrata com métodos para depositar/sacar e adicionar informações na carteira
 
@@ -106,4 +107,21 @@ public abstract class Cliente extends Participante {
     public void listarCarteira() {
         carteira.listarProdutos(); // Exibe os produtos na carteira
     }
+
+    public void comprarAcao(ProdutoFinanceiro ativo, int quantidade) {
+        Compra compra;
+        compra = new Compra(this, ativo, quantidade);
+        compra.executarOrdem();
+
+        carteira.adicionarProduto(ativo);
+    }
+
+    public void venderAcao(ProdutoFinanceiro ativo, int quantidade) {
+        Venda venda;
+        venda = new Venda(this, ativo, quantidade);
+        venda.executarOrdem();
+
+        carteira.removerProduto(ativo);
+    }
+
 }

@@ -1,5 +1,6 @@
 package utilitarios;
 import produtos.*;
+import ordem.*;
 import java.util.*;
 
 // Classe concreta que representa uma carteira de produtos financeiros
